@@ -3,7 +3,9 @@ import InputSample from './InputSample';
 
 function App() {
   return (
-    <InputSample />
+    <div>
+      <InputSample />
+    </div>
   );
 }
 
