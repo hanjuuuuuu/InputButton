@@ -1,23 +1,29 @@
-import React, {useState} from 'react';
-
-function InputSample() {
-    const [text, setText] = useState("hello");
-
-    const chktxt = (e) => {
-        setText(e.target.value);
+import React, { useState } from 'react';
+ 
+function InputSample(props) {
+    const { getData } = props
+    const [text, setText] = useState('Hello')
+ 
+    const handleText = (e) => {
+        setText(e.target.value)
     }
-
-    const printtxt = () => {
-        alert(text);
-        setText('');
+ 
+    const onSubmit = () => {
+        const _inputData = {
+            text: {text}
+        }
+        getData(_inputData)
+        setText('')
     }
-
+ 
     return (
         <div>
-            <input onChange={chktxt} value={text}/>
-            <button onClick={printtxt}>버튼</button>  
+            <div>
+                Input: <input onChange={handleText} value={text} />
+                <button onClick={onSubmit}>버튼</button>
+            </div>
         </div>
     );
 }
-
+ 
 export default InputSample;
